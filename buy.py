@@ -38,14 +38,19 @@ jupiter = Jupiter(
 
 '''
 TODO:
+connect to sol network, get information about particular token first
+print the info from there 
+
+
+MAINCONCEPT:
 listen to new launches in the last 24h
 check if any of them fulfill criteria
-if fulfill, 
+if fulfill,
 conditions:
 mint authority
 burnt LP
 liquidity
-top holder % 
+top holder %
 
 functions:
 stop loss
