@@ -21,18 +21,26 @@ from jupiter_python_sdk.jupiter import Jupiter, Jupiter_DCA
 
 load_dotenv()
 
-private_key_base58 = os.getenv('SOLANA_PRIVATE_KEY')
+private_key = Keypair.from_bytes(base58.b58decode(os.getenv('SOLANA_PRIVATE_KEY')))
+async_client = AsyncClient("SOLANA_RPC_ENDPOINT_URL") 
 
-private_key_bytes = base58.b58decode(private_key_base58)
-
-wallet_keypair = Keypair.from_secret_key(private_key_bytes)
-
-jupiter = Jupiter(wallet=wallet_keypair)
-
+jupiter = Jupiter(
+    async_client=async_client,
+    keypair=private_key,
+    quote_api_url="https://quote-api.jup.ag/v6/quote?",
+    swap_api_url="https://quote-api.jup.ag/v6/swap",
+    open_order_api_url="https://jup.ag/api/limit/v1/createOrder",
+    cancel_orders_api_url="https://jup.ag/api/limit/v1/cancelOrders",
+    query_open_orders_api_url="https://jup.ag/api/limit/v1/openOrders?wallet=",
+    query_order_history_api_url="https://jup.ag/api/limit/v1/orderHistory",
+    query_trade_history_api_url="https://jup.ag/api/limit/v1/tradeHistory"
+)
 
 '''
 TODO:
-copy code block from SDK code snippet
+listen to new launches in the last 24h
+check if any of them fulfill criteria
+if fulfill, 
 conditions:
 mint authority
 burnt LP
