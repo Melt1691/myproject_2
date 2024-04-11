@@ -1,0 +1,3 @@
+SOLANA_PRIVATE_KEY= # your private key here
+SOLANA_RPC_ENDPOINT_URL=https://api.mainnet-beta.solana.com
+SOLANA_RPC_WEBSOCKET_ENDPOINT=wss://api.mainnet-beta.solana.com
