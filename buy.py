@@ -22,7 +22,7 @@ from jupiter_python_sdk.jupiter import Jupiter, Jupiter_DCA
 load_dotenv()
 
 private_key = Keypair.from_bytes(base58.b58decode(os.getenv('SOLANA_PRIVATE_KEY')))
-async_client = AsyncClient("SOLANA_RPC_ENDPOINT_URL") 
+async_client = AsyncClient(os.getenv("SOLANA_RPC_ENDPOINT_URL")) 
 
 jupiter = Jupiter(
     async_client=async_client,
